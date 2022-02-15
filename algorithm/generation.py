@@ -82,6 +82,12 @@ def searchGraph(graph, cur_vertx_indx):
     			visited_li[node.Adjvex] = 1   
     			orderSeq.append(graph.vertList[node.Adjvex].Data)			 
     			break
+
+    for index in range(graph.numVertics):
+    	if visited_li[index] == 0:
+    		visited_li[index] = 1   
+    		orderSeq.append(graph.vertList[index].Data)
+
     return orderSeq
 
 
@@ -95,6 +101,20 @@ if __name__ == '__main__':
 	wb = load_workbook("Metabook.xlsx", read_only = True)
 	coursSheet = wb["KG2_courses"]
 	for i in range(3,53): # COMP 1011
+#	for i in range(54,67): # COMP 1433
+#	for i in range(68,93): # COMP 1901
+#	for i in range(94,148): # COMP 2021
+#	for i in range(149,205): # COMP 2022
+#	for i in range(206,233): # COMP 2011	
+#	for i in range(234,240): # COMP 2411？
+#	for i in range(241,259): # COMP 3133
+#	for i in range(260,331): # COMP 3423
+#	for i in range(332,375): # COMP 4122
+#	for i in range(376,394): # COMP 4133
+#	for i in range(395,402): # COMP 4422
+#	for i in range(403,419): # COMP 4431
+#	for i in range(420,428): # COMP 4434
+#	for i in range(429,467): # COMP 4334 
 		v1 = coursSheet.cell(row = i, column = 5).value
 		v2 = coursSheet.cell(row = i, column = 3).value
 		courseGraph.add_edge(v1, v2)
